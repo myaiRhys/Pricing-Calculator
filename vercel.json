@@ -1,0 +1,34 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "working calculator stable v2.2 copy 2.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "frontend-api.js",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/server.js"
+    },
+    {
+      "src": "/frontend-api.js",
+      "dest": "/frontend-api.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/working calculator stable v2.2 copy 2.html"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
